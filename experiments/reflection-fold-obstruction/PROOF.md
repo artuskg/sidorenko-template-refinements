@@ -24,8 +24,8 @@ on that support its sign vector has law
     2^-7 (1 + (sigma_a/2) product_{gamma in D_a} xi_gamma), on M_a;
     2^-6 (1 - (sigma_a/2) product_{gamma in D_a} xi_gamma), on D_a.
 
-A nonincident type pair has empty activation. This note uses the source
-parameter 1/2 throughout. For a label alpha subset K, let phi_alpha be its
+A nonincident type pair has empty activation. This note chooses the specialization theta=1/2 of the source family,
+which permits every 0<theta<1. This specialization is used throughout. For a label alpha subset K, let phi_alpha be its
 signed activation indicator. If Q=alpha union beta and R=alpha
 symmetric_difference beta, its exact two-label moment is
 
@@ -64,6 +64,13 @@ target type pair. Thus
     P(X,Y,Z)=sum_h C(h) X^u(h) Y^v(h) Z^w(h),
     t0=P/[(sum X)^n (sum Y)^f Zmax^k].                              (3)
 
+The normalization lambda_st=Z_st/Zmax has maximum thinning one. For any
+admitted positive thinning probabilities, put Lmax=max lambda_st and
+lambda_prime_st=lambda_st/Lmax. Every all-nonempty coefficient has degree k
+in the thinning factors, so t0(lambda)=Lmax^k t0(lambda_prime), and the
+right side of (6) scales by the same factor. The transpose has the same
+homogeneity. Thus the normalized representation loses no admitted case.
+
 These features are from common priors and pair thinning only. They supply
 no source-vertex-specific bonus or correlated assignment prior. In
 particular assignments in the same feature fiber cannot be separated.
@@ -99,12 +106,12 @@ the two union conditions and excluded from the other two.
 
 If an edge has label U_e, (4) and (1) force the next edge at any adjacent
 corner to have either that label or the other U-label through the target
-corner. The medial graph is connected, so every source edge gets a target
+corner. The medial graph of a triangulated sphere is connected, so every source edge gets a target
 edge label. The resulting point/edge/face maps send each barycentric flag
 triangle to a target flag triangle without collapsing its three kinds.
 
 The mod-two sum of source flag triangles has zero boundary. Its image
-therefore has zero boundary. On the connected target flag triangulation,
+therefore has zero boundary. On the strongly connected closed target flag pseudomanifold,
 the coefficient of a mod-two 2-cycle is constant across all triangles.
 At the distinguished target corner, a diagonal comparison contributes two
 flags to the same target triangle; an off-diagonal comparison contributes
@@ -147,7 +154,7 @@ The complete coefficients are computable in a finite rational search:
 for edge e intersect the four M-sets at its mapped corners, then enumerate
 its nonempty subsets and the full products (1). Each edge domain has at
 most 127 labels. This is a termination statement, with no efficiency
-claim. At the source parameter, 4^k C(h) is integral and |C(h)|<=127^m.
+claim. At the chosen specialization theta=1/2, 4^k C(h) is integral and |C(h)|<=127^m.
 For an exposed negative face of sum -A, outside terms have an integer
 score gap at least one. The choice T=2+ceil(2 n^n f^f 127^m/A) makes
 their total absolute remainder less than A/2.
@@ -196,14 +203,20 @@ labeling uses U of each folded edge. Every comparison is off-diagonal,
 every target corner in the image half occurs twice, and its product is +c.
 
 The stabilizer of each fold under source precomposition is exactly
-{id,r}. To see this, an automorphism fixing a fold sends a face to itself
-or its reflected mate. Adjacent faces in one disk must choose the same
-side, because an interior shared edge contains an interior point and
-opposite disks meet only on C. Face-dual connectivity forces one choice
-throughout the disk, and its incidence fibers determine id or r. A disk
-has no interior edge joining two boundary vertices: reflection would
-make that edge belong to the intersection outside C. The excluded
-one-triangle double is not a simple simplicial sphere.
+{id,r}. If F+ composed with gamma equals F+, gamma fixes C pointwise and
+sends each interior point p into {p,r(p)}. It sends a face to itself or
+its reflected mate. Two adjacent faces in one disk cannot choose different
+sides: their interior shared edge contains an interior point p, whose image
+would then belong to both disks and hence C. That is impossible for either
+p or r(p). The dual graph of a triangulated disk is connected, so one side
+choice holds throughout the disk. For a face and its reflected mate, their
+gamma-images lie in the same two-element fold fiber; injectivity on faces
+forces the two images to be different. Thus the other disk makes the
+complementary side choice. Vertices are determined by their incident faces
+in a simplicial sphere, so the complete map is id or r. A disk has no
+interior edge joining two boundary vertices: reflection would make that
+edge belong to the intersection outside C. The excluded one-triangle
+double is not a simple simplicial sphere.
 
 Each fold source orbit therefore has g/2 distinct maps. Their features
 are unchanged by source precomposition. Each fold fiber has coefficient
@@ -221,7 +234,7 @@ from the three features in (8); in particular the fold has the boundary's
 at least three point types. Retaining these constant monomials in (8)
 and dividing by the common normalization (3) proves (6).
 
-Thus neither a leading score layer nor any finite positive rational
+Thus neither a leading score layer nor any positive real
 weights can make t0 negative on this class. Zero weights can give boundary
 equalities; the strict claim uses positive weights.
 
@@ -245,7 +258,8 @@ using all ell(ell-1) ordered choices with equal weight. Rim coverage is
 They are obstruction examples, with no favorable sphere search performed.
 
 The supplied own replay checks only the newly uncovered ell=5,6 examples;
-completed earlier small geometry checks were preserved. It verifies
+completed earlier small geometry checks were preserved. The ell=3,4 checks
+are not supplied in this package. It verifies
 20 and 24 automorphisms, fold orbit sizes 10 and 12, the complete feature
 midpoint, every rational coverage and the signed canonical single terms.
 It does not present a fold's one positive term as its full coefficient.
@@ -268,8 +282,11 @@ neither a whole type polynomial nor a field, kernel or host was enumerated.
 The activation and its signed-rank construction belong to the pinned
 OpenAI/math manuscript. The template and Hamiltonian-cut framework belong
 to `rohanarun/sidorenko-template-refinements@d1df2a5cc0cb0c9003466b1c7f8ecb77a8e72a7d`.
-Earlier campaign work supplied the sign-rigidity, orbit-transfer and
-reflection ideas. This addendum gives their exact feature and strict
+Earlier Artus/ChatGPT Pro/Codex campaign work supplied the sign-rigidity,
+orbit-transfer and reflection ideas. The publicly available orbit-transfer
+lineage is credited in [Sidorenko PR6](https://github.com/rohanarun/sidorenko-template-refinements/pull/6);
+that is source credit, without claiming its positive seven-point example
+proves this reflection obstruction. This addendum gives their exact feature and strict
 all-score formulation, with retained analytic scope. Source reindexing,
 elementary convex-face separation, squares and AM/GM are credited as
 methods rather than claimed as inventions. No worldwide priority claim is
